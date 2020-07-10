@@ -10,6 +10,7 @@ docker 雛形
 ## 導入メモ
 
 軽量化する為、alpinelinux を採用
+
 rails を backend、nuxt を fontend として想定
 
 API として rais new する
