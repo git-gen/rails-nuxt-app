@@ -14,7 +14,7 @@ services:
 
   nuxt:
     build: ./nuxt
-    command: npm run dev
+    command: yarn dev
     volumes:
       - ./nuxt:/app
     ports:
