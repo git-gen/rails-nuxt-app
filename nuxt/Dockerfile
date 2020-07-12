@@ -7,7 +7,6 @@ WORKDIR /app
 
 RUN apk update && \
     apk upgrade && \
-    npm install -g yarn && \
     apk add --no-cache \
     python \
     git
