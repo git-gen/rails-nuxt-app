@@ -10,18 +10,17 @@ docker 雛形
 ## 導入メモ
 
 軽量化する為、alpinelinux を採用
+
 rails を backend、nuxt を fontend として想定
 
-API として rais new する
-
+rails作成
 ```bash
-bundle exec rails new . --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
+$ docker-compose run ror rails new . --force --no-deps --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
+
+$ docker-compose run ror bundle install
 ```
 
-docker で新規に rails new する場合
-
+nuxt作成
 ```bash
-docker-compose run ror rails new . --force --no-deps --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
-
-docker-compose run ror bundle install
+$ docker-compose run --rm nuxt yarn create nuxt-app .
 ```
