@@ -17,6 +17,7 @@ db は postgresql を使用します
 
 docker から rails を作成します
 Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません
+railsはAPIでしか使用しない想定なので、いらない機能は軽量化の為オプションでスキップします
 
 ```bash
 $ docker-compose run ror rails new . --force --no-deps --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
@@ -53,6 +54,7 @@ nuxt は docker から作成すると、以下のようなエラーが発生し�
 ```bash
 $ mkdir nuxt && cd nuxt
 # Dockerfile作成
+
 $ docker-compose run --rm nuxt yarn create nuxt-app .
 
 Error: "Can't create . because there's already a non-empty directory . existing in path."
