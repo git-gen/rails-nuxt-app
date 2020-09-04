@@ -13,7 +13,7 @@ docker の雛形を docker-compose を使ってまとめて作成します
 rails を backend、nuxt を fontend として作成します
 db は postgresql を使用します
 
-**rails 作成**
+### rails 作成
 
 docker から rails を作成します
 Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません
@@ -46,7 +46,7 @@ production:
   <<: *default
 ```
 
-**nuxt 作成**
+### nuxt 作成
 
 nuxt は docker から作成すると、以下のようなエラーが発生しました
 
@@ -82,7 +82,7 @@ module.exports = {
 };
 ```
 
-**サーバーを立てる**
+### サーバーを立てる
 
 イメージとコンテナを作る
 
