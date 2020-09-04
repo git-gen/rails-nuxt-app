@@ -10,13 +10,13 @@ docker の雛形を docker-compose を使ってまとめて作成します
 
 軽量化する為、alpinelinux を採用
 
-rails を backend、nuxt を fontend として作成します
+rails を backend、nuxt を fontend として作成します  
 db は postgresql を使用します
 
 ### rails 作成
 
-docker から rails を作成します
-Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません
+docker から rails を作成します  
+Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません  
 railsはAPIでしか使用しない想定なので、いらない機能は軽量化の為オプションでスキップします
 
 ```bash
@@ -73,7 +73,7 @@ $ mv temp/Dockerfile nuxt
 $ rm -rf temp
 ```
 
-docker で nuxt のポートは 3333 に設定してあるので、
+docker で nuxt のポートは 3333 に設定してあるので、  
 作成した nuxt アプリの設定も合わせましょう
 
 ```javascript
