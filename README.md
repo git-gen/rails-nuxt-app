@@ -32,16 +32,32 @@ config/database.ymlを書き換える
 default: &default
   adapter: postgresql
   encoding: utf8
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
-  database: <%= ENV["POSTGRES_DB"] %>
+  username: developergeeeen
+  password: testpass
+  database: testdb
   host: db
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
 ```
 
-イメージとコンテナを作る
+イメージとコンテナを作って完了
 
 ```bash
 $ docker-compose build
 
 $ docker-compose up -d
 ```
+
+rails
+http://localhost:3000
+
+nuxt
+http://localhost:3333
