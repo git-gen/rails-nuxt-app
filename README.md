@@ -48,7 +48,9 @@ production:
   <<: *default
 ```
 
-イメージとコンテナを作って完了
+**サーバーを立てる**
+
+イメージとコンテナを作る
 
 ```bash
 $ docker-compose build
