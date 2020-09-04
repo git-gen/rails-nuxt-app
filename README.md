@@ -42,9 +42,11 @@ $ rm -rf temp
 ```
 
 docker で nuxt のポートは 3333 に設定してあるので、  
-作成した nuxt アプリの設定も合わせましょう
+作成した nuxt アプリの設定もnuxt.config.jsから合わせましょう
 
 ```javascript
+/* nuxt.config.js */
+
 module.exports = {
   server: {
     port: 3333,
@@ -67,6 +69,8 @@ $ docker-compose run ror bundle install
 config/database.yml を書き換える
 
 ```yml
+# config/database.yml
+
 default: &default
   adapter: postgresql
   encoding: utf8
