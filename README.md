@@ -19,7 +19,9 @@ nuxt は docker から作成すると、以下のようなエラーが発生し�
 
 ```bash
 $ mkdir nuxt && cd nuxt
+
 # Dockerfile作成
+$ touch Dockerfile && vi Dockerfile
 
 $ docker-compose run --rm nuxt yarn create nuxt-app .
 
