@@ -13,40 +13,6 @@ docker の雛形を docker-compose を使ってまとめて作成します
 rails を backend、nuxt を fontend として作成します  
 db は postgresql を使用します
 
-### rails 作成
-
-docker から rails を作成します  
-Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません  
-railsはAPIでしか使用しない想定なので、いらない機能は軽量化の為オプションでスキップします
-
-```bash
-$ docker-compose run ror rails new . --force --no-deps --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
-
-$ docker-compose run ror bundle install
-```
-
-config/database.yml を書き換える
-
-```yml
-default: &default
-  adapter: postgresql
-  encoding: utf8
-  username: developergeeeen
-  password: testpass
-  database: testdb
-  host: db
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-
-test:
-  <<: *default
-
-production:
-  <<: *default
-```
-
 ### nuxt 作成
 
 nuxt は docker から作成すると、以下のようなエラーが発生しました
@@ -82,6 +48,40 @@ module.exports = {
     port: 3333,
   },
 };
+```
+
+### rails 作成
+
+docker から rails を作成します  
+Gemfile は ror フォルダに入れてあるので、`bundle init`は必要ありません  
+railsはAPIでしか使用しない想定なので、いらない機能は軽量化の為オプションでスキップします
+
+```bash
+$ docker-compose run ror rails new . --force --no-deps --database=postgresql --skip-yarn --skip-action-mailer --skip-active-storage --skip-action-cable --skip-sprockets --skip-javascript --skip-turbolinks --skip-test --api --skip-bundle
+
+$ docker-compose run ror bundle install
+```
+
+config/database.yml を書き換える
+
+```yml
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: developergeeeen
+  password: testpass
+  database: testdb
+  host: db
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
 ```
 
 ### サーバーを立てる
