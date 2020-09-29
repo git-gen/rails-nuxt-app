@@ -7,8 +7,6 @@ services:
       - ./ror:/app
     ports:
       - "3000:3000"
-    depends_on:
-      - db
     tty: true
     restart: always
 
@@ -21,21 +19,3 @@ services:
       - "3333:3333"
     tty: true
     restart: always
-
-  db:
-    image: postgres:12.2-alpine
-    ports:
-      - "5432:5432"
-    environment:
-      TZ: "Asia/Tokyo"
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
-    volumes:
-      - database:/var/lib/postgresql/data
-    restart: always
-
-volumes:
-  database:
-    driver: local
